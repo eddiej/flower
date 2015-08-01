@@ -1,0 +1,397 @@
+/*------------------------------------*\
+    #RESET
+\*------------------------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*------------------------------------*\
+    #VARIABLES, MIXINS & ANIMATIONS
+\*------------------------------------*/
+
+
+@import "compass/typography/links/link-colors";
+@import "compass/css3/box-shadow";
+
+
+$lightGray:  #eeeeee;
+$darkGray:  #777777;
+$blue:  #5BC0DE;
+$red: #D9534F;
+$green: #5CB85C;
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
+
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@include keyframes(fadeIn) {
+  0% { border:1px solid black;}
+  100% { opacity: 1; border:1px solid red; }
+}
+
+
+
+/*------------------------------------*\
+    #BASE STYLES
+\*------------------------------------*/
+
+body, textarea {
+  font: 1em/1 'Helvetica Neue', Helvetica, Arial;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+
+h1, h2, h3 {
+  font-weight:500;
+}
+h1 { font-size:1.6em; }
+h2 { font-size: 1.2em; }
+
+a {
+  text-decoration:none;
+  @include link-colors($blue, darken($blue, 20%), darken($blue, 10%), $blue, $blue);
+}
+
+h1, h2, h3, p, ul, textarea{
+  margin-bottom:15px;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+img {
+  max-width:100%;
+  height:auto;
+}
+
+button{
+  background: $darkGray;
+  color:white;
+  font-size:0.75em;
+  padding:6px 9px;
+  border:none;
+  @include border-radius(3px);
+
+  &:hover{
+    background:darken($darkGray, 10%);
+  }
+}
+
+.clearfix {
+  zoom:1;
+  &:before, &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+.downarrow{
+  font-size:0.75em;
+}
+
+/*------------------------------------*\
+   #SECTIONS
+\*------------------------------------*/
+
+header#intro{
+  margin-top:30px; /* leave space for #account */
+}
+
+section#use-cases{
+  @extend .clearfix;
+  border-bottom:1px solid $lightGray;
+  margin-bottom:15px;
+  ul {
+    @extend .clearfix;
+    margin-bottom:0;
+    li{
+      opacity:0; /* this allows us to set opacity to 1 on new list items and apply an animation effect */
+      margin-bottom:10px;
+      
+      a {
+        border:1px solid $lightGray;
+        @include border-radius(3px);
+        display:block;
+        @include box-shadow($lightGray 0px 2px 3px);
+
+        img{
+          background:lighten($lightGray,3%);
+        }
+        h3 {
+          min-height:2em; /* allows heading to span two lines without disrupting floats */
+          margin-bottom:0px;
+          color:$darkGray;
+          padding:0.75em 0.5em 0;
+          font-size:0.875em;
+        }
+      }
+      &.show{
+        opacity:1
+      }
+      &.animate{
+        -webkit-animation: fadeIn .5s ease forwards;
+        animation: fadeIn .5s ease forwards;
+      }
+    }
+  }
+  a#see-more{
+    color:$darkGray;
+    float:right;
+    margin-bottom:15px;
+    &.disabled{
+      color:$lightGray;
+      cursor: default;
+    }
+  }
+}
+
+section#help_and_feedback{
+  @extend .clearfix;
+
+  #feedback{
+    p.error {
+        color: $red;
+    }
+    form{
+      #inputs{
+        background: $lightGray;
+        padding: 20px; 
+        margin-bottom:15px;
+
+        textarea{
+          width:100%;
+          height:200px;
+          padding:15px;
+          border:1px solid darken($lightGray, 10%);
+          @include border-radius(3px);
+          &.error{
+            background:lighten($red, 48%);
+          }
+        }
+        #dropzone{
+          display:inline-block;
+          margin-left:8px;
+          vertical-align:top; /* align with the top of the Upload File button */
+          padding:5px 8px; /* to match buttons (minus the border width) */
+          border:1px $darkGray dashed;
+          @include border-radius(3px);
+          font-size:0.75em; /* to match button */
+          line-height:16px;
+
+          &.over{
+            background:Red;
+          }
+        }
+
+        #fileinformation{
+          margin:10px 0 10px 10px;
+          font-size:0.875em;
+          color:$darkGray;
+
+          li{
+            margin-bottom:5px;
+            list-style-type:circle;
+          }
+        }
+      }
+
+      #controls{
+        @extend .clearfix;
+        margin-bottom:20px;
+
+
+        button{
+          float:right;
+          background: $blue;
+          &:hover{
+            background:darken($blue, 10%);
+          }
+          &[disabled]{
+            opacity: 0.5;
+            &:hover{
+              background:$blue !important; /* hovering over a disabled button shouldn't change its color */
+            }
+          }
+        }
+        #sendStatus{
+          padding-top:6px; /* align text with button */
+          float:left;
+          color: $green;
+          &.error{
+            color: $red;
+          }
+        }
+      }
+    }/* /form */
+  }
+}
+
+
+footer#links{
+  margin-bottom:40px;
+  li {
+    float:left;
+    margin-right:20px;
+
+    a{
+      @include link-colors($darkGray, darken($darkGray, 20%), darken($darkGray, 10%), $darkGray, $darkGray);
+    }
+  }  
+}
+
+header#account{
+  position:absolute; 
+  top:20px;
+  right:20px;
+  color: $darkGray;
+}
+
+/*------------------------------------*\
+    #RESPONSIVE BREAKPOINTS
+\*------------------------------------*/
+
+
+/* 
+ *  Determine breakpoints by the maximum desired size of the images.
+ *  Start to have multiple images per row at 400px. */
+
+
+@media screen and (min-width: 400px) {
+  section#use-cases{
+    ul {
+      margin-left:-10px;
+      margin-right:-10px;
+      li {
+        box-sizing:border-box;
+        float:left;
+        width:50%;
+        padding:10px;
+        margin-bottom:0;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  section#use-cases ul li {  
+    width:33.33333%;
+  }
+
+  /* 
+   * Move the help and feedback sections into two columns.
+   * Match the 1:2 ratio of the images */
+
+  #help, #feedback{
+    float:left;
+    box-sizing:border-box;
+  }
+  #help{
+    width:33.33333%;
+    padding-right:10px;
+  }
+  #feedback{
+    padding-left:10px;
+    width:66.66666%;
+  }
+  
+}
+
+@media screen and (min-width: 800px) {
+  section#use-cases ul li {
+    width:25%
+  }
+  #help{
+    width:25%;
+  }
+  #feedback{
+    width:75%;
+  }
+}
+
+/*
+ * Activate the #wrapper div for wide screens 
+ * so that the images don't get oversized. */
+
+@media screen and (min-width: 1050px) {
+  #wrapper{
+    width:960px;
+    margin:0 auto;
+    border:5px solid $lightGray;
+    padding:20px;
+    position:relative; /* so the absolutely positioned account details header places within this. */
+  }
+}
+
