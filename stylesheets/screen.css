@@ -1,0 +1,481 @@
+/*------------------------------------*\
+    #RESET
+\*------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 10, ../sass/screen.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 31, ../sass/screen.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 35, ../sass/screen.scss */
+body {
+  line-height: 1;
+}
+
+/* line 38, ../sass/screen.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 41, ../sass/screen.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 44, ../sass/screen.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 49, ../sass/screen.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*------------------------------------*\
+    #VARIABLES, MIXINS & ANIMATIONS
+\*------------------------------------*/
+@-webkit-keyframes fadeIn {
+  0% {
+    border: 1px solid black;
+  }
+  100% {
+    opacity: 1;
+    border: 1px solid red;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    border: 1px solid black;
+  }
+  100% {
+    opacity: 1;
+    border: 1px solid red;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    border: 1px solid black;
+  }
+  100% {
+    opacity: 1;
+    border: 1px solid red;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    border: 1px solid black;
+  }
+  100% {
+    opacity: 1;
+    border: 1px solid red;
+  }
+}
+/*------------------------------------*\
+    #BASE STYLES
+\*------------------------------------*/
+/* line 103, ../sass/screen.scss */
+body, textarea {
+  font: 1em/1 'Helvetica Neue', Helvetica, Arial;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* line 110, ../sass/screen.scss */
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+/* line 113, ../sass/screen.scss */
+h1 {
+  font-size: 1.6em;
+}
+
+/* line 114, ../sass/screen.scss */
+h2 {
+  font-size: 1.2em;
+}
+
+/* line 116, ../sass/screen.scss */
+a {
+  text-decoration: none;
+  color: #5BC0DE;
+}
+/* line 18, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+a:visited {
+  color: #5BC0DE;
+}
+/* line 21, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+a:focus {
+  color: #5BC0DE;
+}
+/* line 24, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+a:hover {
+  color: #2390b0;
+}
+/* line 27, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+a:active {
+  color: #31b0d5;
+}
+
+/* line 121, ../sass/screen.scss */
+h1, h2, h3, p, ul, textarea {
+  margin-bottom: 15px;
+}
+
+/* line 125, ../sass/screen.scss */
+li {
+  margin-bottom: 10px;
+}
+
+/* line 129, ../sass/screen.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 134, ../sass/screen.scss */
+button {
+  background: #777777;
+  color: white;
+  font-size: 0.75em;
+  padding: 6px 9px;
+  border: none;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+/* line 142, ../sass/screen.scss */
+button:hover {
+  background: #5e5e5e;
+}
+
+/* line 147, ../sass/screen.scss */
+.clearfix, section#use-cases, section#use-cases ul, section#help_and_feedback, section#help_and_feedback #feedback form #controls {
+  zoom: 1;
+}
+/* line 149, ../sass/screen.scss */
+.clearfix:before, section#use-cases:before, section#use-cases ul:before, section#help_and_feedback:before, section#help_and_feedback #feedback form #controls:before, .clearfix:after, section#use-cases:after, section#use-cases ul:after, section#help_and_feedback:after, section#help_and_feedback #feedback form #controls:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+/* line 155, ../sass/screen.scss */
+.clearfix:after, section#use-cases:after, section#use-cases ul:after, section#help_and_feedback:after, section#help_and_feedback #feedback form #controls:after {
+  clear: both;
+}
+
+/* line 160, ../sass/screen.scss */
+.downarrow {
+  font-size: 0.75em;
+}
+
+/*------------------------------------*\
+   #SECTIONS
+\*------------------------------------*/
+/* line 168, ../sass/screen.scss */
+header#intro {
+  margin-top: 30px;
+  /* leave space for #account */
+}
+
+/* line 172, ../sass/screen.scss */
+section#use-cases {
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 15px;
+}
+/* line 176, ../sass/screen.scss */
+section#use-cases ul {
+  margin-bottom: 0;
+}
+/* line 179, ../sass/screen.scss */
+section#use-cases ul li {
+  opacity: 0;
+  /* this allows us to set opacity to 1 on new list items and apply an animation effect */
+  margin-bottom: 10px;
+}
+/* line 183, ../sass/screen.scss */
+section#use-cases ul li a {
+  border: 1px solid #eeeeee;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-clip: padding-box;
+  display: block;
+  -moz-box-shadow: #eeeeee 0px 2px 3px;
+  -webkit-box-shadow: #eeeeee 0px 2px 3px;
+  box-shadow: #eeeeee 0px 2px 3px;
+}
+/* line 189, ../sass/screen.scss */
+section#use-cases ul li a img {
+  background: #f6f6f6;
+}
+/* line 192, ../sass/screen.scss */
+section#use-cases ul li a h3 {
+  min-height: 2em;
+  /* allows heading to span two lines without disrupting floats */
+  margin-bottom: 0px;
+  color: #777777;
+  padding: 0.75em 0.5em 0;
+  font-size: 0.875em;
+}
+/* line 200, ../sass/screen.scss */
+section#use-cases ul li.show {
+  opacity: 1;
+}
+/* line 203, ../sass/screen.scss */
+section#use-cases ul li.animate {
+  -webkit-animation: fadeIn .5s ease forwards;
+  animation: fadeIn .5s ease forwards;
+}
+/* line 209, ../sass/screen.scss */
+section#use-cases a#see-more {
+  color: #777777;
+  float: right;
+  margin-bottom: 15px;
+}
+/* line 213, ../sass/screen.scss */
+section#use-cases a#see-more.disabled {
+  color: #eeeeee;
+  cursor: default;
+}
+
+/* line 223, ../sass/screen.scss */
+section#help_and_feedback #feedback {
+  /* /form */
+}
+/* line 224, ../sass/screen.scss */
+section#help_and_feedback #feedback p.error {
+  color: #D9534F;
+}
+/* line 228, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs {
+  background: #eeeeee;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+/* line 233, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs textarea {
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+/* line 239, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs textarea.error {
+  background: white;
+}
+/* line 243, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs #dropzone {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: top;
+  /* align with the top of the Upload File button */
+  padding: 5px 8px;
+  /* to match buttons (minus the border width) */
+  border: 1px #777777 dashed;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-clip: padding-box;
+  font-size: 0.75em;
+  /* to match button */
+  line-height: 16px;
+}
+/* line 253, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs #dropzone.over {
+  background: Red;
+}
+/* line 258, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs #fileinformation {
+  margin: 10px 0 10px 10px;
+  font-size: 0.875em;
+  color: #777777;
+}
+/* line 263, ../sass/screen.scss */
+section#help_and_feedback #feedback form #inputs #fileinformation li {
+  margin-bottom: 5px;
+  list-style-type: circle;
+}
+/* line 270, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls {
+  margin-bottom: 20px;
+}
+/* line 275, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls button {
+  float: right;
+  background: #5BC0DE;
+}
+/* line 278, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls button:hover {
+  background: #31b0d5;
+}
+/* line 281, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls button[disabled] {
+  opacity: 0.5;
+}
+/* line 283, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls button[disabled]:hover {
+  background: #5BC0DE !important;
+  /* hovering over a disabled button shouldn't change its color */
+}
+/* line 288, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls #sendStatus {
+  padding-top: 6px;
+  /* align text with button */
+  float: left;
+  color: #5CB85C;
+}
+/* line 292, ../sass/screen.scss */
+section#help_and_feedback #feedback form #controls #sendStatus.error {
+  color: #D9534F;
+}
+
+/* line 302, ../sass/screen.scss */
+footer#links {
+  margin-bottom: 40px;
+}
+/* line 304, ../sass/screen.scss */
+footer#links li {
+  float: left;
+  margin-right: 20px;
+}
+/* line 308, ../sass/screen.scss */
+footer#links li a {
+  color: #777777;
+}
+/* line 18, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+footer#links li a:visited {
+  color: #777777;
+}
+/* line 21, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+footer#links li a:focus {
+  color: #777777;
+}
+/* line 24, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+footer#links li a:hover {
+  color: #444444;
+}
+/* line 27, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+footer#links li a:active {
+  color: #5e5e5e;
+}
+
+/* line 314, ../sass/screen.scss */
+header#account {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #777777;
+}
+
+/*------------------------------------*\
+    #RESPONSIVE BREAKPOINTS
+\*------------------------------------*/
+/* 
+ *  Determine breakpoints by the maximum desired size of the images.
+ *  Start to have multiple images per row at 400px. */
+@media screen and (min-width: 400px) {
+  /* line 333, ../sass/screen.scss */
+  section#use-cases ul {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  /* line 336, ../sass/screen.scss */
+  section#use-cases ul li {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 600px) {
+  /* line 349, ../sass/screen.scss */
+  section#use-cases ul li {
+    width: 33.33333%;
+  }
+
+  /* 
+   * Move the help and feedback sections into two columns.
+   * Match the 1:2 ratio of the images */
+  /* line 357, ../sass/screen.scss */
+  #help, #feedback {
+    float: left;
+    box-sizing: border-box;
+  }
+
+  /* line 361, ../sass/screen.scss */
+  #help {
+    width: 33.33333%;
+    padding-right: 10px;
+  }
+
+  /* line 365, ../sass/screen.scss */
+  #feedback {
+    padding-left: 10px;
+    width: 66.66666%;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 373, ../sass/screen.scss */
+  section#use-cases ul li {
+    width: 25%;
+  }
+
+  /* line 376, ../sass/screen.scss */
+  #help {
+    width: 25%;
+  }
+
+  /* line 379, ../sass/screen.scss */
+  #feedback {
+    width: 75%;
+  }
+}
+/*
+ * Activate the #wrapper div for wide screens 
+ * so that the images don't get oversized. */
+@media screen and (min-width: 1050px) {
+  /* line 389, ../sass/screen.scss */
+  #wrapper {
+    width: 960px;
+    margin: 0 auto;
+    border: 5px solid #eeeeee;
+    padding: 20px;
+    position: relative;
+    /* so the absolutely positioned account details header places within this. */
+  }
+}
